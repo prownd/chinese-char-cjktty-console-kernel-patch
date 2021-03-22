@@ -1,0 +1,25 @@
+From d37b51be389b5495cc772f7b05ab06e5ae162dc0 Mon Sep 17 00:00:00 2001
+From: Han Jinpeng <hanjinpeng127@gmail.com>
+Date: Fri, 28 Aug 2020 16:29:30 +0800
+Subject: [PATCH] test1
+
+---
+ drivers/tty/vt/selection.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/tty/vt/selection.c b/drivers/tty/vt/selection.c
+index 8a16717..df97b60 100644
+--- a/drivers/tty/vt/selection.c
++++ b/drivers/tty/vt/selection.c
+@@ -322,6 +322,8 @@ static int __set_selection(const struct tiocl_selection __user *sel, struct tty_
+ 			}
+ 			obp = bp;
+ 		}
++        if (c > 0x80)
++            i += 2;
+ 	}
+ 	sel_buffer_lth = bp - sel_buffer;
+ 
+-- 
+1.8.3.1
+
